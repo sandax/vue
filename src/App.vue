@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="nav">      
+      <router-link v-for="item in my_menu" v-bind:to="item.to" >{{item.label}}</router-link>      
     </div>
     <router-view />
   </div>
@@ -29,3 +28,22 @@
   color: #42b983;
 }
 </style>
+
+<script>
+export default {
+  data() {
+    return {
+      my_menu: [
+        {
+          label:'Page 1',
+          to :'/ala'
+        },
+        {
+          label:'Page2',
+          to :'/alaz'
+        }                
+      ]
+    }
+  }
+}
+</script>
